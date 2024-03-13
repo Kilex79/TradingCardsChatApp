@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3F51B5"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/primary_color"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@color/black"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userProfile_CircleImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/default_user_icon"
+            app:civ_border_color="@color/light"
+            app:civ_border_width="2dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <FrameLayout
+        android:id="@+id/fragment_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="65dp"
+        android:backgroundTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+    </FrameLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+
+            <ImageButton
+                android:id="@+id/shop_img_btn"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@color/primary_color"
+                android:src="@drawable/shop_cards" />
+
+            <ImageButton
+                android:id="@+id/rooms_img_btn"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@color/primary_color"
+                android:src="@drawable/rooms_icon" />
+
+            <ImageButton
+                android:id="@+id/cards_img_btn"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@color/primary_color"
+                android:src="@drawable/cards_icon" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

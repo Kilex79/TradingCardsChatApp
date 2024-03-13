@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/shop"
+        android:title="Shop"
+        android:icon="@drawable/shop_icon" />
+
+    <item android:id="@+id/rooms"
+        android:title="Rooms"
+        android:icon="@drawable/cards_icon" />
+
+    <item android:id="@+id/cards"
+        android:title="Cards"
+        android:icon="@drawable/cards_icon" />
+
+</menu>

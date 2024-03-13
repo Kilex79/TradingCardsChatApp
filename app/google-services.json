@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "954123224031",
+    "project_id": "spacecardcollection",
+    "storage_bucket": "spacecardcollection.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954123224031:android:5bc9537776c26ca40d3a6a",
+        "android_client_info": {
+          "package_name": "com.hikari.spacecardscollection"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFgxS3PkPMsvCG0JEEJ3dGwsMIeF0i7qU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

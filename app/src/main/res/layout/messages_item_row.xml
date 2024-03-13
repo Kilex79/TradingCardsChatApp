@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+
+    <LinearLayout
+        android:id="@+id/sender_message_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:background="@drawable/messages_rounded_corner"
+        android:backgroundTint="@color/people_message"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:visibility="gone">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/sender_rofile_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/default_user_icon" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/sender_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Human1"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/sender_message_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hi good morning."
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sender_message_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:00 AM"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/options_message_linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal"
+        android:backgroundTint="@color/background"
+        android:visibility="gone">
+
+
+        <ImageButton
+            android:id="@+id/delete_message_imageButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/background"
+            android:src="@drawable/delete" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/my_message_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/options_message_linearLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="80dp"
+        android:background="@drawable/your_messages_roundedd_corner"
+        android:backgroundTint="@color/resalto"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:visibility="visible">
+
+
+        <TextView
+            android:id="@+id/my_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Hii."
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/my_message_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:00 AM"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

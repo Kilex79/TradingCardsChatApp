@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="error">#DC0909</color>
+    <color name="people_message">#5D5E5C</color>
+
+    <!-- Blue Theme -->
+    <!--<color name="background">#012340</color>
+    <color name="dark">#011526</color>
+    <color name="primary_color">#054BA6</color>
+    <color name="primary_color_transparent">#66054BA6</color>
+    <color name="secondary_color">#0455BF</color>
+    <color name="light">#347EBF</color>
+    <color name="resalto">#A0BED6</color>
+    <color name="selected">#FDB334</color>-->
+
+    <!-- Brown Theme -->
+    <!--<color name="background">#735C3F</color>
+    <color name="dark">#473926</color>
+    <color name="primary_color">#8C7E51</color>
+    <color name="primary_color_transparent">#668C7E51</color>
+    <color name="secondary_color">#A6A26D</color>
+    <color name="light">#D2D3D9</color>
+    <color name="resalto">#F0F0F2</color>
+    <color name="selected">#FDB334</color>-->
+
+
+    <!-- Green Theme -->
+    <color name="background">#014040</color>
+    <color name="dark">#012B2B</color>
+    <color name="primary_color">#03A678</color>
+    <color name="primary_color_transparent">#6603A678</color>
+    <color name="secondary_color">#02735E</color>
+    <color name="light">#A9EDDA</color>
+    <color name="resalto">#4A9E86</color>
+    <color name="selected">#FDB334</color>
+</resources>
