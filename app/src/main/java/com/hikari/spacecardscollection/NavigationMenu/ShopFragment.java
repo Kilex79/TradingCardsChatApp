@@ -3,6 +3,7 @@ package com.hikari.spacecardscollection.NavigationMenu;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,8 @@ public class ShopFragment extends Fragment {
 
     private User user;
     private FragmentShopBinding binding;
-    private String time;
+    private MutableLiveData<String> playerColdownLiveData = new MutableLiveData<>();
+    private MutableLiveData<Long> gachaQuantityLiveData = new MutableLiveData<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,8 +41,20 @@ public class ShopFragment extends Fragment {
 
         getPlayerColdown();
 
-        System.out.printf("hola");
 
+
+        playerColdownLiveData.observe(getViewLifecycleOwner(), playerColdown -> {
+            // Actualizar la interfaz de usuario con playerColdown
+            // playerColdown contiene el valor actualizado
+            this.user.setPlayerColdown(playerColdown);
+        });
+
+        gachaQuantityLiveData.observe(getViewLifecycleOwner(), gachaQuantity -> {
+            // Actualizar la interfaz de usuario con gachaQuantity
+            // gachaQuantity contiene el valor actualizado
+            this.user.setGachaQuantity(gachaQuantity);
+        });
+        System.out.printf("hola");
         return root;
     }
 
@@ -53,26 +67,19 @@ public class ShopFragment extends Fragment {
             try {
                 DocumentSnapshot documentSnapshot = Tasks.await(docRef.get());
                 if (documentSnapshot.exists()) {
-                    String playerColdwn = documentSnapshot.getString("playerColdown");
-                    if (playerColdwn != null) {
-                        // Actualizar la interfaz de usuario con los datos obtenidos
-                        requireActivity().runOnUiThread(() -> {
-                            //user.setPlayerColdown(playerColdwn);
-                            time = playerColdwn;
-                            // Actualizar la interfaz de usuario aquí según sea necesario
-                        });
-                    } else {
-                        // Handle the case where playerColdwn is null
+                    String playerColdwnFirebase = documentSnapshot.getString("playerColdown");
+                    Long playerGachaQuantity = documentSnapshot.getLong("gachaQuantity");
+                    if (playerColdwnFirebase != null) {
+                        playerColdownLiveData.postValue(playerColdwnFirebase);
                     }
-                } else {
-                    // Handle the case where the document does not exist
+                    if (playerGachaQuantity != null) {
+                        gachaQuantityLiveData.postValue(playerGachaQuantity);
+                    }
                 }
             } catch (ExecutionException | InterruptedException e) {
                 // Handle any errors
             }
         }).start();
     }
-
-
 
 }
