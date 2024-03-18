@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -54,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
     private ImageButton shopFragmentBtn;
     private ImageButton roomsFragmentBtn;
     private ImageButton cardsFragmentBtn;
+    private CardView shopCardView;
+    private CardView roomsCardView;
+    private CardView cardsCardView;
     //
 
     // listas
@@ -102,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
         // ==============================
 
         // ========< NAVIGATION >========
-        roomsFragmentBtn.setBackgroundResource(R.drawable.rounded_borders_btn);
+        roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.light));
         navigation();
         // ==============================
 
@@ -156,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
             CardsFragment cardsFragment = new CardsFragment();
             cardsFragment.setArguments(bundle);
             replaceFragment(cardsFragment);
-            cardsFragmentBtn.setBackgroundResource(R.drawable.rounded_borders_btn);
+            cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.light));
             shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
             roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
         });
@@ -166,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
             shopFragment.setArguments(bundle);
             replaceFragment(shopFragment);
             cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
-            shopFragmentBtn.setBackgroundResource(R.drawable.rounded_borders_btn);
+            shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.light));
             roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
         });
 
@@ -176,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
             replaceFragment(roomsFragment);
             cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
             shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
-            roomsFragmentBtn.setBackgroundResource(R.drawable.rounded_borders_btn);
+            roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.light));
         });
 
     }

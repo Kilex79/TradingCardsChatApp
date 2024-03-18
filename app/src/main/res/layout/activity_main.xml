@@ -24,7 +24,7 @@
             android:id="@+id/userProfile_CircleImageView"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:layout_marginEnd="10dp"
             android:src="@drawable/default_user_icon"
             app:civ_border_color="@color/light"
@@ -65,27 +65,43 @@
 
             <ImageButton
                 android:id="@+id/shop_img_btn"
-                android:layout_width="50dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:background="@color/primary_color"
-                android:src="@drawable/shop_cards" />
+                android:contentDescription="@string/shop_string_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/shop_icon" />
+
 
             <ImageButton
                 android:id="@+id/rooms_img_btn"
-                android:layout_width="50dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:background="@color/primary_color"
+                android:contentDescription="@string/rooms_string_button"
+                android:scaleType="fitCenter"
                 android:src="@drawable/rooms_icon" />
+
 
             <ImageButton
                 android:id="@+id/cards_img_btn"
-                android:layout_width="50dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:background="@color/primary_color"
-                android:src="@drawable/cards_icon" />
+                android:contentDescription="@string/cards_string_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/album_icon" />
+
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

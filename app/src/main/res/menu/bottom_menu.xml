@@ -8,10 +8,10 @@
 
     <item android:id="@+id/rooms"
         android:title="Rooms"
-        android:icon="@drawable/cards_icon" />
+        android:icon="@drawable/rooms_icon" />
 
     <item android:id="@+id/cards"
         android:title="Cards"
-        android:icon="@drawable/cards_icon" />
+        android:icon="@drawable/album_icon" />
 
 </menu>
