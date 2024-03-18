@@ -16,23 +16,25 @@
     <color name="selected">#FDB334</color>-->
 
     <!-- Brown Theme -->
-    <!--<color name="background">#735C3F</color>
-    <color name="dark">#473926</color>
-    <color name="primary_color">#8C7E51</color>
-    <color name="primary_color_transparent">#668C7E51</color>
-    <color name="secondary_color">#A6A26D</color>
-    <color name="light">#D2D3D9</color>
-    <color name="resalto">#F0F0F2</color>
-    <color name="selected">#FDB334</color>-->
+    <color name="background">#0C1E46</color>
+    <color name="dark">#030625</color>
+    <color name="primary_color">#546590</color>
+    <color name="primary_color_transparent">#66546590</color>
+    <color name="secondary_color">#162C55</color>
+    <color name="light">#E0FFFF</color>
+    <color name="resalto">#B880DB</color>
+    <color name="selected">#DE8076</color>
+    <color name="background_gradient1">#47567F</color>
+    <color name="background_gradient2">#0C1E42</color>
 
 
     <!-- Green Theme -->
-    <color name="background">#014040</color>
+    <!--<color name="background">#014040</color>
     <color name="dark">#012B2B</color>
     <color name="primary_color">#03A678</color>
     <color name="primary_color_transparent">#6603A678</color>
     <color name="secondary_color">#02735E</color>
     <color name="light">#A9EDDA</color>
     <color name="resalto">#4A9E86</color>
-    <color name="selected">#FDB334</color>
+    <color name="selected">#FDB334</color>-->
 </resources>

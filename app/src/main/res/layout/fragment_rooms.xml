@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/roomsFragment"
-    android:background="@color/background"
+    android:background="@drawable/gradient_background"
     tools:context=".NavigationMenu.RoomsFragment">
 
     <LinearLayout
@@ -34,7 +34,7 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/rounded_corner"
-                android:backgroundTint="@color/primary_color_transparent"
+                android:backgroundTint="@color/background"
                 android:gravity="center"
                 android:text="Create Room"
                 android:textColor="@color/white"
@@ -48,7 +48,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
                 android:background="@drawable/rounded_corner"
-                android:backgroundTint="@color/primary_color_transparent"
+                android:backgroundTint="@color/background"
                 android:gravity="center"
                 android:text="Join Room"
                 android:textColor="@color/white"
