@@ -9,7 +9,7 @@ public class User implements Serializable {
     private List<User> firends;
     private List<String> friendsRequest;
     private Long gachaQuantity;
-    private com.google.firebase.Timestamp playerColdown;
+    private String playerColdown;
 
 
     private String level;
@@ -121,11 +121,11 @@ public class User implements Serializable {
         this.gachaQuantity = gachaQuantity;
     }
 
-    public com.google.firebase.Timestamp getPlayerColdown() {
+    public String getPlayerColdown() {
         return playerColdown;
     }
 
-    public void setPlayerColdown(com.google.firebase.Timestamp playerColdown) {
+    public void setPlayerColdown(String  playerColdown) {
         this.playerColdown = playerColdown;
     }
 }

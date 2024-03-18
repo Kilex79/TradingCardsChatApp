@@ -30,6 +30,7 @@ import com.hikari.spacecardscollection.User.User;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -157,11 +158,18 @@ public class Register extends AppCompatActivity {
                         userData.put("virtualPremiumMoney", "0");
                         userData.put("gachaQuantity", 5);
                         //userData.put("playerColdown", Timestamp.now());
+                        SimpleDateFormat playerColdownFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault());
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.add(Calendar.HOUR_OF_DAY, -1); // Restar una hora
+                        Date currentDate = calendar.getTime();
+                        String playerColdownStart = playerColdownFormat.format(currentDate);
+                        userData.put("playerColdown", playerColdownStart);
+
 
                         // Obtén la fecha actual
                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-                        Date currentDate = new Date();
-                        String registerDate = sdf.format(currentDate);
+                        Date currentDateAux = new Date();
+                        String registerDate = sdf.format(currentDateAux);
                         userData.put("registerDate", registerDate);
 
                         List<String> stringArray = new ArrayList<>();
