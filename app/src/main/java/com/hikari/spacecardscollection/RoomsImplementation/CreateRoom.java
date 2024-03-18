@@ -196,7 +196,7 @@ public class CreateRoom extends AppCompatActivity {
         roomData.put("roomState", roomPublicPrivate);
         roomData.put("roomCardType", cardsTypeString);
         roomData.put("playerQuantity", 1);
-        roomData.put("playersInfo", new ArrayList<>());
+        //roomData.put("playersInfo", new ArrayList<>());
 
         return roomData;
     }

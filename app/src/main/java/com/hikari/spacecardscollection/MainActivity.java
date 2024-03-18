@@ -106,7 +106,9 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
         // ==============================
 
         // ========< NAVIGATION >========
-        roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.light));
+        roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
+        cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
+        shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
         navigation();
         // ==============================
 
@@ -160,27 +162,27 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
             CardsFragment cardsFragment = new CardsFragment();
             cardsFragment.setArguments(bundle);
             replaceFragment(cardsFragment);
-            cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.light));
-            shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
-            roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
+            cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
+            shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
+            roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
         });
 
         shopFragmentBtn.setOnClickListener(v -> {
             ShopFragment shopFragment = new ShopFragment();
             shopFragment.setArguments(bundle);
             replaceFragment(shopFragment);
-            cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
-            shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.light));
-            roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
+            cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
+            shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
+            roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
         });
 
         roomsFragmentBtn.setOnClickListener(v -> {
             RoomsFragment roomsFragment = new RoomsFragment();
             roomsFragment.setArguments(bundle);
             replaceFragment(roomsFragment);
-            cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
-            shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
-            roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.light));
+            cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
+            shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
+            roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
         });
 
     }

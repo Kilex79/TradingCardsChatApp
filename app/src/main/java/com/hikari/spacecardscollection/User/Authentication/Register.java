@@ -13,10 +13,12 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.storage.FirebaseStorage;
@@ -153,6 +155,8 @@ public class Register extends AppCompatActivity {
                         userData.put("level", "1");
                         userData.put("virtualMoney", "0");
                         userData.put("virtualPremiumMoney", "0");
+                        userData.put("gachaQuantity", 5);
+                        //userData.put("playerColdown", Timestamp.now());
 
                         // Obtén la fecha actual
                         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());

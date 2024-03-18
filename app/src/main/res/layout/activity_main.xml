@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3F51B5"
+    android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@drawable/rounded_corner"
-        android:backgroundTint="@color/light"
+        android:backgroundTint="@color/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -70,11 +70,10 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:background="@color/primary_color"
                 android:contentDescription="@string/shop_string_button"
                 android:scaleType="fitCenter"
-                android:src="@drawable/shop_icon" />
-
+                android:src="@drawable/shop_icon"
+                android:tint="#E6DCE5"/>
 
             <ImageButton
                 android:id="@+id/rooms_img_btn"
@@ -83,10 +82,10 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:background="@color/primary_color"
                 android:contentDescription="@string/rooms_string_button"
                 android:scaleType="fitCenter"
-                android:src="@drawable/rooms_icon" />
+                android:src="@drawable/rooms_icon"
+                android:tint="#E6DCE5"/>
 
 
             <ImageButton
@@ -96,10 +95,10 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:background="@color/primary_color"
                 android:contentDescription="@string/cards_string_button"
                 android:scaleType="fitCenter"
-                android:src="@drawable/album_icon" />
+                android:src="@drawable/album_icon"
+                android:tint="#E6DCE5"/>
 
         </LinearLayout>
 

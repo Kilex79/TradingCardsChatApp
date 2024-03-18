@@ -103,6 +103,8 @@ public class FirestoreDatabase extends AppCompatActivity {
                     user.setUserId(document.getString("userId"));
                     user.setVirtualMoney(document.getString("virtualMoney"));
                     user.setVirtualPremiumMoney(document.getString("virtualPremiumMoney"));
+                    user.setGachaQuantity(document.getLong("gachaQuantity"));
+                    //user.setPlayerColdown(document.getTimestamp("playerColdown"));
 
                     // Notifica al listener que la información del usuario ha sido cargada
                     listener.onUserInfoLoaded(user);
