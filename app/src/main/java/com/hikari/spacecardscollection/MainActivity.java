@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
     private CardView shopCardView;
     private CardView roomsCardView;
     private CardView cardsCardView;
+    private TextView fragmentNameTitle;
     //
 
     // listas
@@ -109,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
         roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
         cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
         shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
+        fragmentNameTitle.setText("Rooms");
         navigation();
         // ==============================
 
@@ -121,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
         roomsFragmentBtn = findViewById(R.id.rooms_img_btn);
         shopFragmentBtn = findViewById(R.id.shop_img_btn);
         cardsFragmentBtn = findViewById(R.id.cards_img_btn);
+        fragmentNameTitle = findViewById(R.id.fragmentName_title);
     }
 
 
@@ -165,6 +169,7 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
             cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
             shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
             roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
+            fragmentNameTitle.setText("Collection");
         });
 
         shopFragmentBtn.setOnClickListener(v -> {
@@ -174,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
             cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
             shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
             roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
+            fragmentNameTitle.setText("Shop");
         });
 
         roomsFragmentBtn.setOnClickListener(v -> {
@@ -183,6 +189,7 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
             cardsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
             shopFragmentBtn.setBackgroundColor(getResources().getColor(R.color.background));
             roomsFragmentBtn.setBackgroundColor(getResources().getColor(R.color.primary_color));
+            fragmentNameTitle.setText("Rooms");
         });
 
     }

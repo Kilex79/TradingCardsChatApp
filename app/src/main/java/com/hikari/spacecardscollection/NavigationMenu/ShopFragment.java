@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.Timestamp;
@@ -29,6 +30,9 @@ public class ShopFragment extends Fragment {
     private MutableLiveData<String> playerColdownLiveData = new MutableLiveData<>();
     private MutableLiveData<Long> gachaQuantityLiveData = new MutableLiveData<>();
 
+    private TextView playerColdownTextView;
+    private TextView gachaQuatityTextView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -41,8 +45,7 @@ public class ShopFragment extends Fragment {
 
         getPlayerColdown();
 
-
-
+        // Obtenemos el coldown y la cantidad de gachas
         playerColdownLiveData.observe(getViewLifecycleOwner(), playerColdown -> {
             // Actualizar la interfaz de usuario con playerColdown
             // playerColdown contiene el valor actualizado
@@ -54,7 +57,18 @@ public class ShopFragment extends Fragment {
             // gachaQuantity contiene el valor actualizado
             this.user.setGachaQuantity(gachaQuantity);
         });
-        System.out.printf("hola");
+        //System.out.printf("hola");
+
+        // ID's
+        playerColdownTextView = root.findViewById(R.id.playerColdown_textView);
+        gachaQuatityTextView = root.findViewById(R.id.gachaQuantity_textView);
+        //
+
+        // Actualización de los TextView
+        playerColdownTextView.setText("00:55:30");
+        gachaQuatityTextView.setText(this.user.getGachaQuantity().toString());
+        //
+
         return root;
     }
 

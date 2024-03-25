@@ -138,7 +138,6 @@ public class Register extends AppCompatActivity {
     }
 
     public void register(String name, String email, String password) {
-
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
@@ -185,6 +184,20 @@ public class Register extends AppCompatActivity {
                                 .set(userData)
                                 .addOnSuccessListener(aVoid -> {
 
+                                    // Subcolección SpaceCards
+                                    FirebaseFirestore.getInstance().collection("Users")
+                                            .document(documentName)
+                                            .collection("SpaceCards")
+                                            .document("SpaceCardDocument")
+                                            .set(new HashMap<>());
+
+                                    // Subcolección MonkeCards
+                                    FirebaseFirestore.getInstance().collection("Users")
+                                            .document(documentName)
+                                            .collection("MonkeCards")
+                                            .document("MonkeCardDocument")
+                                            .set(new HashMap<>());
+
                                     uploadDefaultImageToStorage(userId, email, name);
                                     Intent intent = new Intent(this, Login.class);
                                     intent.putExtra("userEmail", email);
@@ -197,6 +210,7 @@ public class Register extends AppCompatActivity {
                     }
                 });
     }
+
 
     // Método para subir la imagen predeterminada al Storage
     private void uploadDefaultImageToStorage(String userId, String email, String name) {
