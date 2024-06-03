@@ -65,6 +65,10 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.firebaseui:firebase-ui-firestore:8.0.0")
 
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+
+
     //implementation ("org.springframework.boot:spring-boot-starter-web:2.6.4") // Dependencia para crear una aplicación web con Spring Boot
     //implementation ("org.springframework.boot:spring-boot-starter-data-jpa:2.6.4") // Dependencia para acceso a datos con Spring Data JPA
     // Otras dependencias de Spring Boot que necesites

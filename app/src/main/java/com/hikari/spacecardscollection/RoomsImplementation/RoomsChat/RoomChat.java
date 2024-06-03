@@ -43,7 +43,6 @@ public class RoomChat extends AppCompatActivity {
     private ImageButton sendMessageBtn;
     private EditText messageText;
     private TextView gachaColdown;
-    private boolean isCountdownFinished = false;
 
     private CollectionReference collectionReference;
 
@@ -253,42 +252,6 @@ public class RoomChat extends AppCompatActivity {
                 recyclerViewMessages.smoothScrollToPosition(positionStart);
             }
         });
-    }
-
-    private void startCountdown(SerializableTimestamp timestamp) {
-        long timestampMillis = timestamp.getSeconds() * 1000;
-        long currentMillis = System.currentTimeMillis();
-        long differenceMillis = (timestampMillis - currentMillis) * -1;
-
-        long aux = 3600000 - differenceMillis;
-
-        // Verifica si el timestamp del usuario está en el futuro
-        if (aux > 0) {
-            new CountDownTimer(aux, 1000) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    // Convierte los milisegundos restantes en horas, minutos y segundos
-                    long hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished);
-                    long minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) % 60;
-                    long seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) % 60;
-
-                    // Actualiza la interfaz de usuario con el contador regresivo
-                    String countdown = String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, seconds);
-                    gachaColdown.setText(countdown);
-                }
-
-                @Override
-                public void onFinish() {
-                    // Cuando el contador llega a 00:00:00, establece la variable global en true
-                    isCountdownFinished = true;
-                    gachaColdown.setText("00:00:00");
-                }
-            }.start();
-        } else {
-            // El timestamp está en el pasado, ya ha expirado
-            isCountdownFinished = true;
-            gachaColdown.setText("00:00:00");
-        }
     }
 
 

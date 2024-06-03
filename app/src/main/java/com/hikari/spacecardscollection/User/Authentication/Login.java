@@ -80,9 +80,6 @@ public class Login extends AppCompatActivity {
         checkBoxRemember.setChecked(rememberUser);
 
         if (rememberUser) {
-            linearLayoutLogin.setVisibility(View.GONE);
-            goTo_Register.setVisibility(View.GONE);
-            progressBar.setVisibility(View.VISIBLE);
             String savedEmail = prefs.getString("savedEmail", "");
             String savedPassword = prefs.getString("savedPassword", "");
 
@@ -90,13 +87,11 @@ public class Login extends AppCompatActivity {
                 // Autocompletar campos de correo electrónico y contraseña
                 email_editText.setText(savedEmail);
                 password_editText.setText(savedPassword);
-                login(savedEmail, savedPassword);
             }
         }
         //
 
         login_btn.setOnClickListener(v -> {
-            //login_btn.setVisibility(View.GONE);
             linearLayoutLogin.setVisibility(View.GONE);
             goTo_Register.setVisibility(View.GONE);
             progressBar.setVisibility(View.VISIBLE);
@@ -111,23 +106,16 @@ public class Login extends AppCompatActivity {
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("savedEmail", email);
                     editor.putString("savedPassword", password);
+                    editor.putBoolean("rememberUser", true);
                     editor.apply();
                 } else {
                     // Si el checkbox no está marcado, elimina la información guardada
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.remove("savedEmail");
                     editor.remove("savedPassword");
+                    editor.putBoolean("rememberUser", false);
                     editor.apply();
                 }
-
-                /*if (firestoreClassLogin.login(email, password)) {
-                    *//*Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);
-                    finish();*//*
-                } else {
-                    login_btn.setVisibility(View.VISIBLE);
-                    progressBar.setVisibility(View.GONE);
-                }*/
                 login(email, password);
             }
         });
@@ -150,16 +138,14 @@ public class Login extends AppCompatActivity {
             editor.apply();
         });
 
-
         // Register
         goTo_Register.setOnClickListener(v -> {
             Intent intent = new Intent(this, Register.class);
             startActivity(intent);
             finish();
         });
-        //
-
     }
+
 
     private void ids() {
         email_editText = findViewById(R.id.user_email_login);

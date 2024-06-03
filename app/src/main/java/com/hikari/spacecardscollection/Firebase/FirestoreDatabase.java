@@ -12,6 +12,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.hikari.spacecardscollection.Objects.Card;
 import com.hikari.spacecardscollection.RoomsImplementation.InterfaceListener.RoomFetchListener;
 import com.hikari.spacecardscollection.RoomsImplementation.Room;
 import com.hikari.spacecardscollection.RoomsImplementation.RoomsChat.SerializableTimestamp;
@@ -268,6 +270,118 @@ public class FirestoreDatabase extends AppCompatActivity {
             System.out.println("Error al agregar el email a la sala " + roomName + ": " + e.getMessage());
         });
     }
+
+
+    public void getOneCard(String cardType, String userEmail, FirestoreCallback callback) {
+        CollectionReference cardsRef = db.collection(cardType);
+
+        cardsRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                QuerySnapshot querySnapshot = task.getResult();
+                if (querySnapshot != null && !querySnapshot.isEmpty()) {
+                    List<DocumentSnapshot> documents = querySnapshot.getDocuments();
+                    int randomIndex = new Random().nextInt(documents.size());
+                    DocumentSnapshot randomDocument = documents.get(randomIndex);
+
+                    // Check if the user already has the card
+                    checkUserCardCollection(cardType, userEmail, randomDocument, callback);
+                } else {
+                    callback.onCallback(null);
+                }
+            } else {
+                callback.onCallback(null);
+            }
+        });
+    }
+
+    private void checkUserCardCollection(String cardType, String userEmail, DocumentSnapshot randomDocument, FirestoreCallback callback) {
+        DocumentReference userCardDocRef = db.collection("Users").document(userEmail).collection(cardType).document(randomDocument.getId());
+
+        userCardDocRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DocumentSnapshot userCardDoc = task.getResult();
+
+                if (userCardDoc.exists()) {
+                    // User already has the card
+                    String cardName = randomDocument.getString("cardName");
+                    if (cardName != null) {
+                        cardName = "Ya tienes esta carta: " + cardName;
+                        Card card = randomDocument.toObject(Card.class);
+                        if (card != null) {
+                            card.setCardName(cardName);
+                        }
+                        callback.onCallback(card);
+                    } else {
+                        callback.onCallback(randomDocument.toObject(Card.class));
+                    }
+                } else {
+                    // User does not have the card, so add it to their collection
+                    Card card = randomDocument.toObject(Card.class);
+                    userCardDocRef.set(card).addOnSuccessListener(aVoid -> {
+                        callback.onCallback(card);
+                    }).addOnFailureListener(e -> {
+                        // Handle any errors
+                        callback.onCallback(null);
+                    });
+                }
+            } else {
+                callback.onCallback(null);
+            }
+        });
+    }
+
+    public interface FirestoreCallback {
+        void onCallback(Card card);
+    }
+
+
+    // Nuevo método para recuperar las cartas del usuario
+    public void fetchUserCards(String userEmail, final FirestoreCardsListener listener) {
+        List<Card> userCards = new ArrayList<>();
+
+        CollectionReference userRef = db.collection("Users").document(userEmail).collection("MonkeCards");
+        userRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (DocumentSnapshot document : task.getResult()) {
+                    // Ignorar el documento "MonkeCardDocument"
+                    if (!document.getId().equals("MonkeCardDocument")) {
+                        Card card = document.toObject(Card.class);
+                        userCards.add(card);
+                    }
+                }
+                fetchSpaceCards(userEmail, userCards, listener);
+            } else {
+                listener.onFailure(task.getException());
+            }
+        });
+    }
+
+    private void fetchSpaceCards(String userEmail, List<Card> userCards, final FirestoreCardsListener listener) {
+        CollectionReference userRef = db.collection("Users").document(userEmail).collection("SpaceCards");
+        userRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (DocumentSnapshot document : task.getResult()) {
+                    // Ignorar el documento "SpaceCardDocument"
+                    if (!document.getId().equals("SpaceCardDocument")) {
+                        Card card = document.toObject(Card.class);
+                        userCards.add(card);
+                    }
+                }
+                listener.onSuccess(userCards);
+            } else {
+                listener.onFailure(task.getException());
+            }
+        });
+    }
+
+    // Interfaz de listener para manejar los callbacks de la base de datos
+    public interface FirestoreCardsListener {
+        void onSuccess(List<Card> cards);
+        void onFailure(Exception e);
+    }
+
+
+
 
 
 }

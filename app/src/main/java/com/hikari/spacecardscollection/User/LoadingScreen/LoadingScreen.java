@@ -32,7 +32,7 @@ import java.util.List;
 public class LoadingScreen extends AppCompatActivity implements RoomFetchListener {
 
     // ======< APP VERSION >=====
-    private final String appVersion = "0.0.1 Alpha";
+    private final String appVersion = "0.1.2 Alpha";
     private TextView appVersionTextView;
     // ==========================
 

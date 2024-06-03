@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -46,6 +47,7 @@ public class RoomsFragment extends Fragment {
     private Button create_room_btn;
     private Button your_rooms_btn;
     private Button public_rooms_btn;
+    private Button join_room_btn;
     private FloatingActionButton refreshRoomsFab;
     private FragmentRoomsBinding binding;
     private List<Room> publicRooms;
@@ -132,6 +134,7 @@ public class RoomsFragment extends Fragment {
         your_rooms_btn = root.findViewById(R.id.your_rooms_btn);
         public_rooms_btn = root.findViewById(R.id.public_rooms_btn);
         refreshRoomsFab = root.findViewById(R.id.refresh_rooms_fab);
+        join_room_btn = root.findViewById(R.id.join_room_btn);
         //
 
         // Create Room
@@ -144,6 +147,10 @@ public class RoomsFragment extends Fragment {
             }
         });
         //
+
+        join_room_btn.setOnClickListener(v -> {
+            Toast.makeText(getContext(), "Esta funcionalidad se implementará en la beta 1.1v", Toast.LENGTH_SHORT).show();
+        });
 
 
         // Show diferents RecyclerViews

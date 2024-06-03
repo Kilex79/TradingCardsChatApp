@@ -35,6 +35,7 @@ import com.hikari.spacecardscollection.NavigationMenu.ShopFragment;
 import com.hikari.spacecardscollection.RoomsImplementation.InterfaceListener.RoomFetchListener;
 import com.hikari.spacecardscollection.RoomsImplementation.Room;
 import com.hikari.spacecardscollection.RoomsImplementation.RoomsChat.RoomChat;
+import com.hikari.spacecardscollection.User.Authentication.Login;
 import com.hikari.spacecardscollection.User.LoadingScreen.LoadingScreen;
 import com.hikari.spacecardscollection.User.User;
 import com.hikari.spacecardscollection.User.InterfaceListeners.UserInfoListener;
@@ -42,11 +43,14 @@ import com.hikari.spacecardscollection.User.InterfaceListeners.UserInfoListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MainActivity extends AppCompatActivity implements UserInfoListener {
 
     private String userEmail;
     private FirestoreDatabase firestoreDatabase;
     private User user;
+    private CircleImageView userCircleImageView;
     // Firebase
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -117,6 +121,13 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
 
         firestoreDatabase.getInfoUserSynchronously(userEmail, this);
 
+        userCircleImageView.setOnClickListener(item -> {
+            mAuth.signOut();
+            Intent intentSignOut = new Intent(MainActivity.this, Login.class);
+            intentSignOut.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intentSignOut);
+        });
+
         getFCMToken();
     }
 
@@ -125,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
         shopFragmentBtn = findViewById(R.id.shop_img_btn);
         cardsFragmentBtn = findViewById(R.id.cards_img_btn);
         fragmentNameTitle = findViewById(R.id.fragmentName_title);
+        userCircleImageView = findViewById(R.id.userProfile_CircleImageView);
     }
 
 
@@ -195,7 +207,6 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
     }
 
 
-
     public User getUser() {
         return user;
     }
@@ -209,7 +220,6 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
     }
 
 
-
     public List<Room> getPublicRooms() {
         return publicRooms;
     }
@@ -217,7 +227,6 @@ public class MainActivity extends AppCompatActivity implements UserInfoListener 
     public List<Room> getYourRooms() {
         return yourRooms;
     }
-
 
 
     @Override
